@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>View Flight</title>
+		
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+	
+	<body>
+		<nav th:replace="fragments/fragment :: navbar('View Flight')"></nav>
+		<hr>
+		<h3 th:text="'ID : ' + ${flight.id}"></h3>
+		<h3 th:text="'Flight Number : ' + ${flight.flightNumber}"></h3>
+		<h3 th:text="'Origin : ' + ${flight.origin}"></h3>
+		<h3 th:text="'Destination : ' + ${flight.destination}"></h3>
+		<h3 th:text="'Time : ' + ${flight.time}"></h3>
+		
+		<hr>
+		<h3 th:text="'Pilot Name : ' + ${pilotName}"></h3>
+		<h3 th:text="'License Number : ' + ${pilotLicenseNumber}"></h3>
+		<h3 th:text="'Fly Hour : ' + ${pilotFlyHour}"></h3>
+		<hr>
+		<td><a th:href="@{/}">Home</a></td>
+	</body>
+</html>	
