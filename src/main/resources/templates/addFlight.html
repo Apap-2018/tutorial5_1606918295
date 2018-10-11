@@ -15,19 +15,37 @@
 		<h3>Tambah Penerbangan</h3>
 		<form th:action="@{/flight/add}" th:object="${flight}" method="POST">
 			<input type="hidden" th:field="*{pilot}"/>			
-			Flight Number: <br>
-			<input type="text" name="flightNumber" />
-			<br>
-			Origin: <br>
-			<input type="text" name="origin" />
-			<br>
-			Destination: <br>
-			<input type="text" name="destination" />
-			<br>
-			Time: <br>
-			<input type="date" name="time" />
-			<br><br>
-			<button type="submit">Submit</button>
+			<table class="table">
+				<thead>
+				<tr>
+					<th>Flight Number</th>
+					<th>Origin</th>
+					<th>Destination</th>
+					<th>Time</th>
+					<th>
+						<button class="btn btn-info" type="submit" name="addRow">Add New Flight</button>
+					</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr th:each="flight, rowIter : *{flightRows}">
+						<th>
+							<input type="hidden" name="pilot" class="form-control" th:field="*{flightRows[__${rowIter.index}__].pilot}">
+							<input type="text" name="flightNumber" class="form-control" th:field="*{flightRows[__${rowIter.index}__].flightNumber}">
+						</th>
+						<th>
+							<input type="text" name="origin" class="form-control" th:field="*{flightRows[__${rowIter.index}__].origin}">
+						</th>
+						<th>
+							<input type="text" name="destination" class="form-control" th:field="*{flightRows[__${rowIter.index}__].destination}">
+						</th>
+						<th>
+							<input type="date" name="time" class="form-control" th:field="*{flightRows[__${rowIter.index}__].time}">
+						</th>	
+					</tr>
+				</tbody>		
+			</table>
+			<button class="btn btn-primary" type="submit" name="save">Submit</button>
 		</form>
 	</body>
 </html>

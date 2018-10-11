@@ -1,5 +1,7 @@
 package com.apap.tutorial5.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import com.apap.tutorial5.model.FlightModel;
 import com.apap.tutorial5.model.PilotModel;
 import com.apap.tutorial5.service.FlightServiceImpl;
 import com.apap.tutorial5.service.PilotService;
+import org.springframework.validation.BindingResult;
 
 @Controller
 public class FlightController {
@@ -74,5 +77,17 @@ public class FlightController {
 		
 		return "delete";
 	}
+	
+//	@RequestMapping(value="/flight/add/{licenseNumber}", method = RequestMethod.POST, params= {"addRow"})
+//	public String addRow(@ModelAttribute PilotModel pilot, BindingResult bindingResult, Model model) {
+//		if (pilot.getPilotFlight() == null) {
+//			pilot.setPilotFlight(new List<FlightModel>());
+//		}
+//        
+//		pilot.getPilotFlight().add(new FlightModel());
+//		
+//		model.addAttribute("pilot", pilot);
+//		return "addFlight";
+//	}
 }
 
