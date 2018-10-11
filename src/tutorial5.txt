@@ -1,0 +1,24 @@
+Latihan
+1. Mengubah isi di file fragment.html pada bagian navbarnya.
+Menambah fragment navbar dengan parameter "(header)" 
+dan menambah <a class="navbar-brand" href="#"></a> menjadi
+<a class="navbar-brand" href="#" th:text="${header}></a>
+Dengan diberikan parameter "{header}", maka setiap parameter yg ada (header)
+akan berganti sesuai dengan parameter masing-masing page.
+
+Kemudian, di navbar masing-masing page ditambahkan pula isi dari parameter
+yang sudah disesuaikan dengan judul masing-masing page, contohnya untuk Home
+dengan menambahkan ('APAP') sebagai isi parameter navbar tersebut:
+<nav th:replace="fragments/fragment :: navbar('APAP')"></nav> 
+
+Melakukan hal yang sama kepada tiap page dengan isi yang disesuaikan.
+
+2. Membuat method addRow untuk menambahkan baris baru setiap kali ingin
+menambah flight baru dengan menambah params="addRow", untuk pilot yang tidak 
+memiliki flight, akan dibuatkan list kosong.
+
+Melakukan perubahan pada method add dan addFlightSubmit yang
+sudah ada sebelumnya di FlightController. Pada addFlightSubmit, penggunaan
+looping dipakai untuk menyesuaikan dengan banyaknya row yang ditambahkan user.
+
+Melakukan perubahan pada file addFlight.html sesuai dengan contoh di soal.
